@@ -1,5 +1,7 @@
 # Astro Starter Kit: Basics
 
+TODO: Replace astro setup action in deploy.yml with the official one once suooort for newer pnpm is merged from the pull request version.
+
 ```
 npm create astro@latest -- --template basics
 ```

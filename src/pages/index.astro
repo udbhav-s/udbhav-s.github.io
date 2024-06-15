@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
 ---
 
 <Layout title="Udbhav Saxena">
@@ -12,21 +13,63 @@ import Layout from "../layouts/Layout.astro";
       </div>
 
       <div class="text">
-        <p class="instructions">
-          I'm a sophomore studying CS at Michigan State University. I like exploring
+        <p>
+          CS + Math undergrad @ Michigan State University. I like exploring
           cybersecurity, app development, functional programming, working with
           graphics & media and also music production.
         </p>
         <p>
-          <a href="https://drive.google.com/file/d/1g9IY8k6x_YJfs7FOABKgc2d6Rix9ANuy/view?usp=sharing">Resume</a> |
+          <div>Links:</div>
+          <a
+            href="https://drive.google.com/file/d/1g9IY8k6x_YJfs7FOABKgc2d6Rix9ANuy/view?usp=sharing"
+            >Resume</a
+          > |
           <a href="https://github.com/udbhav-s">GitHub</a> |
-          <a href="https://www.linkedin.com/in/udbhav-saxena-748160217/">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/udbhav-saxena-748160217/"
+            >LinkedIn</a
+          >
         </p>
       </div>
     </div>
 
-    <h2>Blog</h2>
-    <div>Post coming soon!</div>
+    <!-- <h2>Blog</h2>
+    <div>Post coming soon!</div> -->
+    <h2>Pinned 📌</h2>
+    <div class="card-list">
+      <div>
+        <Card
+          href="https://spartancybersecurityclub.github.io/"
+          title="Spartan Cybersecurity Club"
+          body="Join us in Fall 2024 for cool workshops and CTFs!!"
+        />
+      </div>
+      <div>
+        <Card
+          href="https://spartancybersecurityclub.github.io/pages/ectf-2024.html"
+          title="MITRE eCTF 2024"
+          body="An overview of the 2024 semester-long cybersecurity competition."
+        />
+      </div>
+    </div>
+
+    <h2>DevPost links</h2>
+    <p>Hackathon Projects</p>
+    <div class="card-list">
+      <div>
+        <Card
+          href="https://devpost.com/software/fluxus-a4bgv1"
+          title="Fluxus"
+          body="(HackMIT 2023) Tool to iteratively work with healthcare data frames using natural language queries (yes, using LLMs)."
+        />
+      </div>
+      <div>
+        <Card
+          href="https://devpost.com/software/proximitycast"
+          title="ProximityCast"
+          body="Using cryptography for private proximity detection and broadcasting local events."
+        />
+      </div>
+    </div>
   </main>
 </Layout>
 
@@ -42,7 +85,7 @@ import Layout from "../layouts/Layout.astro";
   }
 
   h1 {
-    font-size: 4rem;
+    font-size: 2rem;
     font-weight: 700;
     line-height: 1;
     text-align: center;
@@ -61,5 +104,9 @@ import Layout from "../layouts/Layout.astro";
 
   h2 {
     margin-bottom: 0px;
+  }
+
+  .card-list > * {
+    margin-top: 1rem;
   }
 </style>

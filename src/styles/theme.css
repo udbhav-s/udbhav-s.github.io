@@ -14,6 +14,6 @@
   --border-main: var(--border-width) var(--border-style) var(--border-color);
 
   /* Typography */
-  --font-heading: system-ui, sans-serif;
+  --font-heading: 'Raleway', sans-serif;
   --color-heading: var(--color-text);
 }

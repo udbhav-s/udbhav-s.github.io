@@ -1,0 +1,546 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const experience = [
+  {
+    title: "Research Assistant",
+    company: "Michigan State University (Department of Computer Science)",
+    location: "East Lansing, MI",
+    advisor: "Dr. Xuhao Chen",
+    date: "September 2025 – May 2026",
+    bullets: [
+      "Investigating performance engineering techniques for Zero-Knowledge Proof generation using C++.",
+      "Studying curve and hash based proof schemes, MSM / NTT algorithms, numerical optimizations, and parallelization with GPUs."
+    ]
+  },
+  {
+    title: "Full Stack Developer",
+    company: "MSU Burgess Institute for Entrepreneurship and Innovation",
+    location: "East Lansing, MI",
+    date: "March 2023 – September 2025",
+    bullets: [
+      "Developed technical MVPs for 10+ student startups in the Launch program, including full-stack Next.js projects, apps in Flutter, Shopify storefronts, and computer vision prototypes with OpenCV.",
+      "Developed a computer vision prototype with OpenCV and React frontend to stitch captures from a fisheye lens for scanning a whiteboard.",
+      "Used Google Vision for OCR.",
+      "Streamlined inventory management for a storefront with 50+ student sellers with Google Apps scripts to sync spreadsheets with the Squarespace API, automating hours of inventory updates to seconds."
+    ]
+  },
+  {
+    title: "Research Assistant",
+    company: "Michigan State University",
+    location: "East Lansing, MI",
+    date: "October 2022 – March 2023",
+    bullets: [
+      "Built an internal tool for inventory management using TypeScript to generate forms using JSON schemas and convert them to and from Excel spreadsheets that reduced previous form codebase size by 80%.",
+      "Designed a dynamic listings view for USDA farmer's markets in a region with an interactive map."
+    ]
+  },
+  {
+    title: "Full Stack Intern",
+    company: "AiBorne Tech (now Amply)",
+    location: "Delhi, India",
+    date: "October 2021 – April 2022",
+    bullets: [
+      "Developed the web dashboard for an AI car damage inspection platform with Vue 3 and TypeScript.",
+      "Created an interactive 3D car model using Three.js and WebGL to display damage for separate parts, with a gallery widget that updated the Three.js viewport based on the selected region."
+    ]
+  }
+];
+
+const education = [
+  {
+    university: "Michigan State University",
+    degree: "Bachelor of Science in Computer Science and Mathematics",
+    location: "East Lansing, MI",
+    details: "GPA: 3.98/4.0 | Honors College | Dean's List | Gillette Research Scholar",
+    date: "August 2022 – May 2026",
+    coursework: "Data Structures and Algorithms, Operating Systems and Networking, Software Performance Engineering, Foundations of Computing, Computer Security, Accelerated Computing (CUDA)"
+  }
+];
+
+const allTags = ["Web Dev", "Security", "Cryptography", "Design", "Accessibility", "Embedded", "Web3", "AI", "C++", "Rust", "Mobile", "Vue", "React", "Python"];
+
+const projects = [
+  {
+    title: "Diagonalize (HackMIT 2025 – 1st place in EigenLayer Track)",
+    link: "https://github.com/dheerajt10/diagonalize",
+    tags: ["Web3", "Security", "Web Dev", "Python"],
+    bullets: [
+      "Implemented a private OAuth provider that ran an SMTP server and verified emails inside a TEE, deployed on EigenCloud.",
+      "Used the WebAuthn API to bind email verifications to user-managed public keys (passkeys).",
+      "Wrote a smart contract in Solidity that stored verified anonymous attestations on-chain with associated public keys."
+    ]
+  },
+  {
+    title: "Fluxus (HackMIT 2023 – 1st place in Healthcare Track)",
+    link: "https://devpost.com/software/fluxus-a4bgv1",
+    tags: ["Web Dev", "AI", "Vue", "Python"],
+    bullets: [
+      "Developed the front end for an intuitive workspace for transforming and visualizing healthcare data frames.",
+      "The web dashboard featured a graph network illustrating table relationships.",
+      "Fine-tuned an LLM to comprehend medical record codes, generating SQL queries based on natural language prompts for dataset transformations.",
+      "Analyzed generated SQL with node-sql-parser to deduce new table relationships and update the dashboard."
+    ]
+  },
+  {
+    title: "Capstone Project – Advanced C++ Traffic Simulation",
+    link: "#",
+    tags: ["C++", "Web Dev"],
+    bullets: [
+      "Developed modern C++ modules that allowed creating Web UIs in C++ using Emscripten and WebAssembly, with support for inline styles, flex layouts, and event handling."
+    ]
+  },
+  {
+    title: "Secure Satellite TV Decoder (MITRE eCTF 2025)",
+    link: "https://spartancybersecurityclub.github.io/pages/ectf-2025.html",
+    tags: ["Rust", "Embedded", "Security", "Cryptography", "Python"],
+    bullets: [
+      "Team Lead | Designed firmware in Rust to model a secure Satellite TV decoder, placing 21st out of 116 teams.",
+      "Devised a hierarchical key management scheme using hash trees for zero-trust access to channels in subscription packages.",
+      "Employed cryptographic primitives including Ed25519 signatures, ChaCha20 encryption, HKDF key derivation (with SHA-512).",
+      "Wrote a Python script to perform padding oracle attack on insecure AES implementation on the microcontroller."
+    ]
+  },
+  {
+    title: "Secure Medical System Firmware (MITRE eCTF 2024)",
+    link: "https://spartancybersecurityclub.github.io/pages/ectf-2024.html",
+    tags: ["Embedded", "Security", "Cryptography"],
+    bullets: [
+      "Team Lead | Wrote firmware for embedded Analog Devices microcontrollers in C, simulating a medical device and components for a semester-long cybersecurity competition.",
+      "Ranked 9th among 95 international teams.",
+      "Implemented secure and authenticated communication between boards modeled after a TLS handshake, with certificate verification using public-key cryptography and ChaCha20-Poly1305 for encrypted messages.",
+      "Used ChaCha20-Poly1305 for AEAD with a counter for secure post-boot communications to protect integrity and authenticity of exchanged messages."
+    ]
+  },
+  {
+    title: "Secure Automotive Car-Key Fob Firmware (MITRE eCTF 2023)",
+    link: "#",
+    tags: ["Embedded", "Security", "Cryptography", "Python"],
+    bullets: [
+      "Engineered firmware for embedded TI Tiva microcontrollers in C, simulating a car and key fob for a semester-long cybersecurity competition (MITRE eCTF).",
+      "Ranked 7th among 80 international teams and 3rd in defensive points.",
+      "Devised a secure protocol for car unlocking, employing public-key cryptography and a challenge-response mechanism.",
+      "The car generated a random nonce, and the fob signed it using elliptic curve digital signatures.",
+      "Developed firmware build tools in Python, executed in Docker containers, to generate header files containing seeded entropy for randomness in firmware."
+    ]
+  },
+  {
+    title: "Proximity Cast (2022)",
+    link: "https://devpost.com/software/proximitycast",
+    tags: ["C++", "Mobile", "Cryptography"],
+    bullets: [
+      "Built an app in C++ and Flutter that used public-key encryption to privately detect if two parties are within proximity of each other to find and broadcast events.",
+      "1st place at MSU Code Green Hackathon 2022.",
+      "Implemented a protocol from a research paper, converting location information into ciphertexts and combining them for a distance result revealing only whether participants were within a certain range.",
+      "Wrote the core library in C++ using the GMP library, and integrated into a Flutter app using the Android NDK.",
+      "Facilitated real-time peer-to-peer chat between connected parties with WebRTC."
+    ]
+  },
+  {
+    title: "Web Multiplayer Card Game",
+    link: "#",
+    tags: ["Web Dev", "Vue", "Design"],
+    bullets: [
+      "Web-based card game made using Vue.js, the Web Animations API, and SVG art.",
+      "Used JS Proxies on the backend to reactively track changes in the game state, generate JSON patches that were sent through WebSockets to the frontend and integrated with the reactive Vue state.",
+      "Designed artwork for game cards using Inkscape."
+    ]
+  },
+  {
+    title: "Interactive Gallery Installation for School Centenary Museum",
+    link: "https://thearchivehps.netlify.app/",
+    tags: ["Web Dev", "Vue", "Design"],
+    bullets: [
+      "Worked on an interactive gallery installation for an alumni reunion at HPS Begumpet that presented a physical interface with two displays and dials for scrubbing through images throughout the school's history.",
+      "Independently developed all the software and backend for the project within a span of a month, leading to a physical installation used by hundreds of people at the event."
+    ]
+  },
+  {
+    title: "Document Scanning Aid for Visually Impaired Users",
+    link: "#",
+    tags: ["Web Dev", "Vue", "Accessibility"],
+    bullets: [
+      "Worked on software accompanying a hardware prototype that explored new UX paradigms for document scanning and OCR for use by visually impaired people.",
+      "Developed demos using JavaScript and Google MediaPipe that enabled ways to center documents in frame using audio cues.",
+      "Incorporated feedback from testing at school for visually impaired children.",
+      "Project won Best Student Project award at IndiaHCI 2025 conference."
+    ]
+  }
+];
+
+const leadership = [
+  {
+    title: "MSU Cybersecurity Club President",
+    date: "",
+    bullets: [
+      "Responsible for coordinating cybersecurity events for a club of 200+ students.",
+      "Created workshops on the Linux shell, web hacking, forensics, cryptography and binary analysis."
+    ]
+  },
+  {
+    title: "First-year Engineering CoRe Experience Peer Leader, App Lead",
+    date: "January 2023 – April 2025",
+    bullets: [
+      "Worked on a team of residential students that helped freshmen engineers acclimate to college at MSU.",
+      "Organized College of Engineering colloquium, lab tours, and weekly academic and professional events for residents."
+    ]
+  },
+  {
+    title: "SpartaHack Annual Hackathon Core Organizing Team",
+    date: "2025, 2026",
+    bullets: [
+      "Led the operations team in organizing the theme, tracks, activities and judging at the hackathon."
+    ]
+  }
+];
+
+const skills = [
+  { category: "Languages & Core Development", list: "Python, TypeScript, JavaScript, C/C++, Rust, Go, Dart, SQL, HTML/CSS, Liquid" },
+  { category: "Frameworks & Libraries", list: "Vue.js (Vue 3), Next.js, React.js, Node.js, Nest.JS, Flask, Flutter, Three.js, WebGL, OpenCV, Google Vision, Google MediaPipe, WebRTC, OpenCilk, GMP, Android NDK" },
+  { category: "Tools, Databases & Deployment", list: "Docker, CMake, Nginx, Firebase, Postgres, WebSockets, Git, Linux/Unix, Shopify, Squarespace API, Google Apps Script" },
+  { category: "Security & Cryptography", list: "Zero-Knowledge Proofs, Public Key Infrastructure (PKI), Identity and Authentication, Application Security, Web Hacking, Forensics, Binary Analysis, Cryptographic Primitives (ChaCha20-Poly1305, Ed25519, HKDF, AES)" },
+  { category: "Systems & High Performance Computing", list: "CUDA, Software Performance Engineering, Microcontrollers, Embedded Systems Security, Hardware/Firmware Tools" },
+  { category: "Design & Multimedia", list: "Figma, Adobe Photoshop, Adobe Illustrator, Adobe After Effects, Unity, Inkscape, SVG, Digital Design, Interactive User Experiences" },
+  { category: "Leadership & Operations", list: "Team Leadership, Event Coordination, Workshop Creation" }
+];
+---
+
+<Layout title="Resume | Udbhav Saxena">
+  <main>
+    <a href="/" class="back-link">← Back to Home</a>
+    <div class="name-heading-container">
+      <h1>Resume</h1>
+      <p class="summary">
+        I am a developer with experience in full-stack software, security, and low-level development. My skills include software performance engineering, public key infrastructure and zero-trust, applied cryptography as well as multimedia. I value working on challenging problems and creating polished user experiences!
+      </p>
+      <p class="contact-links">
+        <a href="mailto:udbhavs03@gmail.com">udbhavs03@gmail.com</a> |
+        <a href="https://udbhav-s.github.io">udbhav-s.github.io</a> |
+        <a href="https://www.linkedin.com/in/udbhav-s/">linkedin.com/in/udbhav-s</a>
+      </p>
+    </div>
+
+    <section>
+      <h2>Education</h2>
+      <div class="resume-list">
+        {education.map(ed => (
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <h3>{ed.university}</h3>
+              <span class="date">{ed.date}</span>
+            </div>
+            <div class="resume-entry-subtitle">
+              <strong>{ed.degree}</strong> | {ed.location}
+            </div>
+            <div class="resume-entry-details">
+              <em>{ed.details}</em>
+            </div>
+            <div class="resume-entry-coursework">
+              <strong>Relevant Coursework:</strong> {ed.coursework}
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <div class="resume-list">
+        {experience.map(exp => (
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <h3>{exp.title}</h3>
+              <span class="date">{exp.date}</span>
+            </div>
+            <div class="resume-entry-subtitle">
+              <strong>{exp.company}</strong> | {exp.location}
+            </div>
+            {exp.advisor && <div class="resume-entry-advisor"><em>Advisor: {exp.advisor}</em></div>}
+            <ul class="resume-bullets">
+              {exp.bullets.map(b => <li>{b}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>Projects</h2>
+      <div class="projects-filter">
+        <span>Filter by tags:</span>
+        <div class="tag-list" id="filter-tags">
+          {allTags.map(tag => (
+            <button class="tag-btn" data-tag={tag}>{tag}</button>
+          ))}
+        </div>
+      </div>
+      <div class="resume-list" id="projects-list">
+        {projects.map(proj => (
+          <div class="resume-entry project-entry" data-tags={proj.tags.join(',')}>
+            <div class="resume-entry-header">
+              <h3>
+                {proj.link !== '#' ? (
+                  <a href={proj.link} target="_blank" rel="noopener noreferrer">{proj.title}</a>
+                ) : (
+                  proj.title
+                )}
+              </h3>
+            </div>
+            <div class="project-tags">
+              {proj.tags.map(t => <span class="tag">{t}</span>)}
+            </div>
+            <ul class="resume-bullets">
+              {proj.bullets.map(b => <li>{b}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul class="skills-list">
+        {skills.map(skill => (
+          <li><strong>{skill.category}:</strong> {skill.list}</li>
+        ))}
+      </ul>
+    </section>
+
+    <section>
+      <h2>Leadership & Operations</h2>
+      <div class="resume-list">
+        {leadership.map(lead => (
+          <div class="resume-entry">
+            <div class="resume-entry-header">
+              <h3>{lead.title}</h3>
+              {lead.date && <span class="date">{lead.date}</span>}
+            </div>
+            <ul class="resume-bullets">
+              {lead.bullets.map(b => <li>{b}</li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1rem;
+    width: 800px;
+    max-width: calc(100% - 2rem);
+    color: var(--color-text);
+    font-size: 18px;
+    line-height: 1.6;
+    border-left: var(--border-main);
+  }
+
+  a {
+    color: var(--color-link);
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  h1::after {
+    width: 200vw;
+    position: absolute;
+    transform: translateX(-100vw);
+    content: "";
+    margin-top: 1rem;
+    display: block;
+    border-bottom: var(--border-main);
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px dashed var(--color-text);
+    padding-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin: 0;
+  }
+
+  .name-heading-container {
+    margin-bottom: 2rem;
+    max-width: 100%;
+  }
+
+  .summary {
+    font-size: 1.1rem;
+  }
+  
+  .contact-links {
+    font-weight: bold;
+    margin-top: 0.5rem;
+  }
+
+  .resume-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .resume-entry {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .resume-entry-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .date {
+    font-weight: 600;
+    font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+    font-size: 0.9rem;
+    color: var(--color-accent);
+  }
+
+  .resume-entry-subtitle, .resume-entry-details, .resume-entry-advisor, .resume-entry-coursework {
+    font-size: 1rem;
+  }
+
+  .resume-bullets {
+    margin: 0.5rem 0 0 0;
+    padding-left: 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .resume-bullets li {
+    margin-bottom: 0.3rem;
+  }
+
+  .skills-list {
+    padding-left: 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .skills-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* Projects Filter Tags */
+  .projects-filter {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .projects-filter span {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag-btn {
+    background: transparent;
+    border: var(--border-main);
+    color: var(--color-text);
+    padding: 0.2rem 0.6rem;
+    border-radius: 9999px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    font-family: var(--font-heading);
+    transition: all 0.2s ease;
+  }
+
+  .tag-btn:hover {
+    background: var(--color-card-hover-bg);
+  }
+
+  .tag-btn.active {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-color: var(--color-accent);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.25rem;
+  }
+
+  .tag {
+    background: var(--color-text);
+    color: var(--color-bg);
+    padding: 0.1rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.tag-btn');
+    const projectEntries = document.querySelectorAll('.project-entry');
+    let activeTag = null;
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tag = btn.getAttribute('data-tag');
+        
+        if (activeTag === tag) {
+          // Deselect
+          activeTag = null;
+          btn.classList.remove('active');
+        } else {
+          // Select new tag
+          filterBtns.forEach(b => b.classList.remove('active'));
+          activeTag = tag;
+          btn.classList.add('active');
+        }
+
+        // Filter projects
+        projectEntries.forEach(entry => {
+          if (!activeTag) {
+            entry.style.display = 'flex';
+          } else {
+            const tags = (entry.getAttribute('data-tags') || '').split(',');
+            if (tags.includes(activeTag)) {
+              entry.style.display = 'flex';
+            } else {
+              entry.style.display = 'none';
+            }
+          }
+        });
+      });
+    });
+  });
+</script>

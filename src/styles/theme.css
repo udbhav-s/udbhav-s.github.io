@@ -15,4 +15,5 @@
 
   /* Typography */
   --font-heading: system-ui, sans-serif;
+  --color-heading: var(--color-text);
 }

@@ -5,7 +5,9 @@ import Card from "../components/Card.astro";
 
 <Layout title="Udbhav Saxena">
   <main>
-    <h1>Udbhav Saxena</h1>
+    <div class="name-heading-container">
+      <h1>Udbhav Saxena</h1>
+    </div>
 
     <div class="container">
       <div>
@@ -121,11 +123,25 @@ import Card from "../components/Card.astro";
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
+  }
+
+  h1::after {
+    width: 200vw;
+    position: absolute;
+    transform: translateX(-100vw);
+    content: "";
+    margin-top: 1rem;
+    display: block;
+    border-bottom: var(--border-main);
+  }
+
+  .name-heading-container {
+    margin-bottom: 2rem;
+    width: 100vw;
+    overflow-x: hidden;
   }
 
   .container {

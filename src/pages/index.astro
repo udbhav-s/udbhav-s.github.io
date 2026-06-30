@@ -20,11 +20,16 @@ import Card from "../components/Card.astro";
           cybersecurity, applied cryptography, web development, UX, and data visualization! <br>
           I am currently doing research in zero-knowledge proofs and their performance engineering. 
         </p>
+        <a href="/resume" class="resume-link">
+          <h4>
+          View my resume →
+          </h4>
+        </a>
         <p>
           <div>Links:</div>
           <a
             href="https://drive.google.com/file/d/1g9IY8k6x_YJfs7FOABKgc2d6Rix9ANuy/view?usp=sharing"
-            >Resume</a
+            >Resume (PDF)</a
           > |
           <a href="https://github.com/udbhav-s">GitHub</a> |
           <a href="https://www.linkedin.com/in/udbhav-saxena-748160217/"
@@ -143,6 +148,26 @@ import Card from "../components/Card.astro";
   .name-heading-container {
     margin-bottom: 2rem;
     max-width: 100%;
+  }
+
+  .resume-link {
+    display: inline-block;
+    text-decoration: none;
+    border: var(--border-main);
+    border-style: dashed;
+    padding: 1rem;
+  }
+
+  .resume-link:hover {
+    background: var(--color-text);
+
+    & h4 {
+      color: var(--color-bg);
+    }
+  }
+
+  .resume-link h4 {
+    margin: 0;
   }
 
   .container {

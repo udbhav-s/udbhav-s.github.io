@@ -1,4 +1,6 @@
 --- 
+import '../styles/theme.css';
+
 interface Props {
 	title: string;
 }
@@ -21,16 +23,13 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
-	}
 	html {
 		font-family: system-ui, sans-serif;
-		background: #13151A;
+		background: var(--color-bg);
 		background-size: 224px;
+	}
+	h1, h2, h3, h4, h5, h6 {
+		font-family: var(--font-heading);
 	}
 	code {
 		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,

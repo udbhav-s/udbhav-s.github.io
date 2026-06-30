@@ -1,0 +1,18 @@
+:root {
+  --color-bg: #F4E8C1;             /* Perl Beige */
+  --color-text: #1C5253;           /* Dark Slate Grey */
+  --color-link: #B6174B;           /* Cherry Rose */
+  --color-card-bg: transparent;  
+  --color-card-hover-bg: #A0C1B9;  /* Ash Grey */
+  --color-card-text: #1C5253;      /* Dark Slate Grey */
+  --color-accent: #B6174B;         /* Cherry Rose */
+
+  /* Borders */
+  --border-width: 1px;
+  --border-style: solid;
+  --border-color: var(--color-text);
+  --border-main: var(--border-width) var(--border-style) var(--border-color);
+
+  /* Typography */
+  --font-heading: system-ui, sans-serif;
+}
